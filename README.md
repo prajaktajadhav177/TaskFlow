@@ -4,25 +4,25 @@
 
 ---
 
-## 📱 Live Demo
+## 📱 Live Demo & Downloads
 
 | Platform | Link |
 |----------|-------|
-| 🌐 Web (Chrome) | `https://your-deployed-url.web.app` |
-| 🤖 Android APK | Available in releases |
+| 🌐 Web App | [task-flow-ukgv.vercel.app](https://task-flow-ukgv.vercel.app/#/login) |
+| 🤖 Android APK | [Download APK](https://drive.google.com/file/d/14sjwsxnH4UYtu6ITEwb9DMNnwiQPlufX/view?usp=drive_link) |
 
 ### Demo Credentials
 
 | Role | Email | Password |
 |------|-------|----------|
-| Admin | admin@taskflow.com | admin123 |
-| Member | member@taskflow.com | member123 |
+| 👑 Admin | admin@taskflow.com | admin123 |
+| 👤 Member | member@taskflow.com | member123 |
 
 ---
 
 ## 🎥 Demo Video
 
-[Watch 3-minute demo →](https://your-video-link-here)
+[▶️ Watch Demo Video](https://drive.google.com/file/d/1ZKYo0TqNAW03GjLZuS5pu7oJ5E81yAHv/view?usp=drive_link)
 
 ---
 
@@ -89,6 +89,7 @@
 | Backend | Firebase (Firestore + Auth) |
 | Database | Cloud Firestore (NoSQL) |
 | Authentication | Firebase Auth |
+| Deployment | Vercel (Web) |
 | Charts | fl_chart |
 | Fonts | Google Fonts (Syne + Space Grotesk) |
 | Navigation | GetX routing |
@@ -204,8 +205,8 @@ lib/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/taskflow.git
-cd taskflow
+git clone https://github.com/prajaktajadhav177/TaskFlow.git
+cd TaskFlow
 ```
 
 ### 2. Install dependencies
@@ -262,7 +263,7 @@ flutter run -d emulator-5554
 # Chrome (web)
 flutter run -d chrome
 
-# Both simultaneously
+# Run both simultaneously
 # Terminal 1:
 flutter run -d chrome
 # Terminal 2:
@@ -271,44 +272,27 @@ flutter run -d emulator-5554
 
 ---
 
-## 🌐 Deployment (Railway / Firebase Hosting)
+## 🌐 Deployment
 
-### Firebase Hosting (Web)
+### Vercel (Web) — Currently Live
 ```bash
-# Install Firebase CLI
+# Build web
+flutter build web --release
+
+# Push to GitHub — Vercel auto-deploys on push
+git add .
+git commit -m "deploy"
+git push origin main
+```
+
+### Firebase Hosting (Alternative)
+```bash
 npm install -g firebase-tools
 firebase login
-
-# Initialize hosting
-firebase init hosting
-# Public directory: build/web
-# Single page app: Yes
-
-# Build and deploy
+firebase init hosting   # public dir: build/web, SPA: Yes
 flutter build web --release
 firebase deploy
 ```
-
-### Railway (Backend / if using Node API)
-```bash
-# Install Railway CLI
-npm install -g @railway/cli
-railway login
-railway init
-railway up
-```
-
----
-
-## 📸 Screenshots
-
-| Dashboard | Projects | Task Detail |
-|-----------|----------|-------------|
-| ![dashboard](screenshots/dashboard.png) | ![projects](screenshots/projects.png) | ![task](screenshots/task.png) |
-
-| Login | Create Project | Profile |
-|-------|----------------|---------|
-| ![login](screenshots/login.png) | ![create](screenshots/create_project.png) | ![profile](screenshots/profile.png) |
 
 ---
 
@@ -316,25 +300,47 @@ railway up
 
 | Issue | Fix |
 |-------|-----|
-| Projects not showing | Removed `orderBy` + `arrayContains` combo (requires Firestore index) — now sorts in memory |
+| Projects not showing | Removed `orderBy` + `arrayContains` combo (requires Firestore composite index) — now sorts in memory |
 | Role shows wrong after signup | Replaced one-time fetch with real-time Firestore stream in `AppController` |
 | Firebase duplicate-app crash on hot restart | Added `if (Firebase.apps.isEmpty)` guard in `main.dart` |
 | Emulator keyboard not working | Set `windowSoftInputMode="adjustResize"` in AndroidManifest + enable keycode forwarding in emulator settings |
 
 ---
 
-## 👨‍💻 Author
+## 👩‍💻 Author
 
-**Your Name**
+**Prajakta Jadhav**
 - GitHub: [@prajaktajadhav177](https://github.com/prajaktajadhav177/TaskFlow)
 - Email: prajaktajadhav177@gmail.com
 
 ---
 
-## 📄 License
+## 📄 License & Usage Rights
 
-This project is licensed under the MIT License.
+**Copyright © 2026 Prajakta Jadhav. All Rights Reserved.**
+
+This project and its source code are submitted as part of a job application / technical assignment.
+
+> ⚠️ **IMPORTANT NOTICE**
+>
+> - This code is the **exclusive intellectual property** of Prajakta Jadhav
+> - **No company, organization, or individual** may use, copy, modify, distribute, or deploy this code or any part of it **without explicit written permission** from the author
+> - Submission of this project for evaluation **does not transfer any ownership or usage rights** to the receiving party
+> - This project may **not** be used as a product, internal tool, template, or reference implementation by any company
+> - Any unauthorized use will be considered a violation of intellectual property rights
+
+### Permitted
+- ✅ Reviewing and evaluating the code for hiring purposes
+- ✅ Running locally for assessment only
+
+### Not Permitted
+- ❌ Using this code in any commercial or non-commercial product
+- ❌ Distributing or sharing this code with third parties
+- ❌ Deploying this application under a different name or brand
+- ❌ Using this as a base/template for other projects without permission
+
+For permissions or inquiries: **prajaktajadhav177@gmail.com**
 
 ---
 
-*Built with ⚡ Flutter + Firebase for [Assignment/Hackathon Name]*
+*Built with ⚡ Flutter + Firebase by Prajakta Jadhav*
